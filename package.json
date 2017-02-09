@@ -1,0 +1,22 @@
+{
+  "name": "the-griffin",
+  "version": "0.1.0",
+  "description": "Sloppy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jykinturah/the-griffin.git"
+  },
+  "author": "Jykinturah",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Jykinturah/the-griffin/issues"
+  },
+  "homepage": "https://github.com/Jykinturah/the-griffin#readme",
+  "dependencies": {
+    "eris": "^0.5.2"
+  }
+}
