@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Jykinturah/the-griffin#readme",
   "dependencies": {
-    "eris": "^0.5.2"
+    "eris": "github:abalabahaha/eris#6dd10c617751ac4ffff7d4391166870d49b892d1"
   }
 }
