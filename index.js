@@ -7,8 +7,14 @@ const path = require("path");
 const Config = require("./config.json");
 
 
-// Study this https://github.com/nicholastay/discord-fx
-// This is currently incomplete.
+/*------------------------------------------------
+Most of the code was from here, and modified by me
+just to learn how this worked. Very educational.
+ 
+   https://github.com/nicholastay/discord-fx
+
+------------------------------------------------*/
+
 class TheGriffin {
     constructor() {
         console.log("FFXIV BUILT");
@@ -40,7 +46,7 @@ class TheGriffin {
 
         let existingConn = this.client.voiceConnections.find(vc => vc.id === message.channel.guild.id);
 
-        let ogg = -1;
+        let ogg = -1; // I just wanted it to do one thing but my friend was like ADD WILHELM sigh.
         if(message.content.startsWith(this.prefix + "sloppy"))
         	ogg = path.join(__dirname, "sloppy.ogg");
         else if(message.content.startsWith(this.prefix + "scream"))
@@ -50,6 +56,8 @@ class TheGriffin {
 
         	console.log(`${message.channel.guild.name} :: #${message.channel.name} // ${message.author.username}#${message.author.discriminator} ~~ FX: SLOPPY`);
 
+        	// still not sure what this does, seems to make a queue so commands don't just vanish? and then
+        	// uses promises to play them so it doesn't just get lost.
             if (existingConn) {
                 if (this.connQueues[message.member.voiceState.channelID].length > 4)
                     return;
