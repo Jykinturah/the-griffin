@@ -40,11 +40,15 @@ class TheGriffin {
 
         let existingConn = this.client.voiceConnections.find(vc => vc.id === message.channel.guild.id);
 
-        if(message.content.startsWith(this.prefix + "sloppy")){
+        let ogg = -1;
+        if(message.content.startsWith(this.prefix + "sloppy"))
+        	ogg = path.join(__dirname, "sloppy.ogg");
+        else if(message.content.startsWith(this.prefix + "scream"))
+        	ogg = path.join(__dirname, "scream.ogg");
+
+        if(ogg != -1){
 
         	console.log(`${message.channel.guild.name} :: #${message.channel.name} // ${message.author.username}#${message.author.discriminator} ~~ FX: SLOPPY`);
-
-	        let ogg = path.join(__dirname, "sloppy.ogg");
 
             if (existingConn) {
                 if (this.connQueues[message.member.voiceState.channelID].length > 4)
