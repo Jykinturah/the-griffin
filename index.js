@@ -51,10 +51,14 @@ class TheGriffin {
         	ogg = path.join(__dirname, "sloppy.ogg");
         else if(message.content.startsWith(this.prefix + "scream"))
         	ogg = path.join(__dirname, "scream.ogg");
+        else if(message.content.startsWith(this.prefix + "namedays"))
+        	ogg = path.join(__dirname, "namedays.ogg");
+        else if(message.content.startsWith(this.prefix + "raubahnsavage"))
+        	ogg = path.join(__dirname, "namedays.ogg");
 
         if(ogg != -1){
 
-        	console.log(`${message.channel.guild.name} :: #${message.channel.name} // ${message.author.username}#${message.author.discriminator} ~~ FX: SLOPPY`);
+        	console.log(`${message.channel.guild.name} :: #${message.channel.name} // ${message.author.username}#${message.author.discriminator} ~~ FX: ${message.content}`);
 
         	// still not sure what this does, seems to make a queue so commands don't just vanish? and then
         	// uses promises to play them so it doesn't just get lost.
