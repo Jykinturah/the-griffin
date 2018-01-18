@@ -15,6 +15,8 @@ just to learn how this worked. Very educational.
 
 ------------------------------------------------*/
 
+//  chirrup, chirp, tweet, sing, warble, honk, quack, squawk, parrot, meow, purr, chatter 
+
 class TheGriffin {
     constructor() {
         console.log("FFXIV BUILT");
@@ -56,7 +58,7 @@ class TheGriffin {
         else if(message.content.startsWith(this.prefix + "raubahnsavage"))
         	ogg = path.join(__dirname, "namedays.ogg");
         else if(message.content.startsWith(this.prefix + "ping"))
-        	this.client.messageCreate(message.channel.id, "`PONG! " (Date.now() - msg.timestamp) + "ms`");
+        	this.client.messageCreate(message.channel.id, "`PONG! " + (Date.now() - msg.timestamp) + "ms`");
 
         if(ogg != -1){
 
