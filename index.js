@@ -58,7 +58,7 @@ class TheGriffin {
         else if(message.content.startsWith(this.prefix + "raubahnsavage"))
         	ogg = path.join(__dirname, "namedays.ogg");
         else if(message.content.startsWith(this.prefix + "ping"))
-        	this.client.messageCreate(message.channel.id, "`PONG! " + (Date.now() - msg.timestamp) + "ms`");
+        	this.client.messageCreate(message.channel.id, "`PONG! " + (Date.now() - message.timestamp) + "ms`");
 
         if(ogg != -1){
 
