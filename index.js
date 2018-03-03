@@ -19,7 +19,7 @@ just to learn how this worked. Very educational.
 
 class TheGriffin {
     constructor() {
-        console.log("FFXIV BUILT");
+        console.log("BIRB BUILT");
 
         this.client = null;
         this.connQueues = {};
@@ -32,11 +32,22 @@ class TheGriffin {
         this.client = new Eris(Config.bot_token);
         this.attachEvents();
         this.client.connect();
+
+        var onomArray = ["CHIRRUP", "CHIRP", "TWEET", "SING", "WARBLE", "HONK", "QUACK", "SQUAWK", "PARROT", "MEOW", "PURR", "CHATTER"];
+        var onomIndex = parseInt(Math.random() * onomArray.length);
+		console.log("Set status: " + onomArray[onomIndex]);
+	    this.client.editStatus({ name: "noise: " + onomArray[onomIndex]});
+		var onomSet = 5 * 1000;
+		setInterval(()=>{
+			var onomIndex = parseInt(Math.random() * onomArray.length);
+			console.log("Set status: " + onomArray[onomIndex]);
+		    this.client.editStatus({ name: "noise: " + onomArray[onomIndex]});
+		},onomSet);
     }
 
     attachEvents() {
-        this.client.on("ready", () => console.log("Ilberd is Ready."));
-        this.client.on("disconnect", () => console.log("Ilberd is strugglin'. Reconnecting..."));
+        this.client.on("ready", () => console.log("BIRB is Ready."));
+        this.client.on("disconnect", () => console.log("BORIRB is strugglin'. Reconnecting..."));
         this.client.on("messageCreate", this.handleMessage.bind(this));
     }
     handleMessage(message) {
@@ -57,8 +68,30 @@ class TheGriffin {
         	ogg = path.join(__dirname, "namedays.ogg");
         else if(message.content.startsWith(this.prefix + "raubahnsavage"))
         	ogg = path.join(__dirname, "namedays.ogg");
-        else if(message.content.startsWith(this.prefix + "ping"))
-        	this.client.messageCreate(message.channel.id, "`PONG! " + (Date.now() - message.timestamp) + "ms`");
+        else if(message.content.startsWith(this.prefix + "illusion")){
+        	var random = Math.floor(Math.random() * 4);
+        	switch(random){
+        		case 0: ogg = path.join(__dirname, "illusion/female1.ogg"); break;
+        		case 1: ogg = path.join(__dirname, "illusion/female2.ogg"); break;
+        		case 2: ogg = path.join(__dirname, "illusion/male1.ogg"); break;
+        		case 3: ogg = path.join(__dirname, "illusion/male2.ogg");
+        	}
+        else if(message.content.startsWith(this.prefix + "fillusion")){
+        	var random = Math.floor(Math.random() * 2);
+        	switch(random){
+        		case 0: ogg = path.join(__dirname, "illusion/female1.ogg"); break;
+        		case 1: ogg = path.join(__dirname, "illusion/female2.ogg");
+        	}
+        else if(message.content.startsWith(this.prefix + "millusion")){
+        	var random = Math.floor(Math.random() * 2);
+        	switch(random){
+        		case 0: ogg = path.join(__dirname, "illusion/male1.ogg"); break;
+        		case 1: ogg = path.join(__dirname, "illusion/male2.ogg");
+        	}
+        }else if(message.content.startsWith(this.prefix + "ping")){
+        	this.client.createMessage(message.channel.id, "PONG! " + (Date.now() - message.timestamp) + "ms");
+        	console.log(`${message.channel.guild.name} :: #${message.channel.name} // ${message.author.username}#${message.author.discriminator} ~~ PING`)
+        }
 
         if(ogg != -1){
 
@@ -90,3 +123,4 @@ class TheGriffin {
 const bot = new TheGriffin();
 global.Griffin = bot;
 bot.start();
+
