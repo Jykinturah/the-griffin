@@ -76,13 +76,13 @@ class TheGriffin {
         		case 2: ogg = path.join(__dirname, "illusion/male1.ogg"); break;
         		case 3: ogg = path.join(__dirname, "illusion/male2.ogg");
         	}
-        else if(message.content.startsWith(this.prefix + "fillusion")){
+        }else if(message.content.startsWith(this.prefix + "fillusion")){
         	var random = Math.floor(Math.random() * 2);
         	switch(random){
         		case 0: ogg = path.join(__dirname, "illusion/female1.ogg"); break;
         		case 1: ogg = path.join(__dirname, "illusion/female2.ogg");
         	}
-        else if(message.content.startsWith(this.prefix + "millusion")){
+        }else if(message.content.startsWith(this.prefix + "millusion")){
         	var random = Math.floor(Math.random() * 2);
         	switch(random){
         		case 0: ogg = path.join(__dirname, "illusion/male1.ogg"); break;
