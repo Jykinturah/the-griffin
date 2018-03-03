@@ -36,12 +36,12 @@ class TheGriffin {
         var onomArray = ["CHIRRUP", "CHIRP", "TWEET", "SING", "WARBLE", "HONK", "QUACK", "SQUAWK", "PARROT", "MEOW", "PURR", "CHATTER"];
         var onomIndex = parseInt(Math.random() * onomArray.length);
 		console.log("Set status: " + onomArray[onomIndex]);
-	    this.client.editStatus({ name: "noise: " + onomArray[onomIndex]});
-		var onomSet = 5 * 1000;
+	    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
+		var onomSet = 5 * 60 * 1000;
 		setInterval(()=>{
 			var onomIndex = parseInt(Math.random() * onomArray.length);
 			console.log("Set status: " + onomArray[onomIndex]);
-		    this.client.editStatus({ name: "noise: " + onomArray[onomIndex]});
+		    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
 		},onomSet);
     }
 
