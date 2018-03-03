@@ -40,12 +40,12 @@ class TheGriffin {
         	var onomArray = ["CHIRRUP", "CHIRP", "TWEET", "SING", "WARBLE", "HONK", "QUACK", "SQUAWK", "PARROT", "MEOW", "PURR", "CHATTER"];
 	        var onomIndex = parseInt(Math.random() * onomArray.length);
 			console.log("Set status: " + onomArray[onomIndex]);
-		    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
+		    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex], type: 0, url: null });
 			var onomSet = 5 * 60 * 1000;
 			setInterval( () => {
 				var onomIndex = parseInt(Math.random() * onomArray.length);
 				console.log("Set status: " + onomArray[onomIndex]);
-			    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
+			    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex] , type: 0, url: null });
 			},onomSet);
         });
         this.client.on("disconnect", () => console.log("BORIRB is strugglin'. Reconnecting..."));
