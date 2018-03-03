@@ -32,21 +32,22 @@ class TheGriffin {
         this.client = new Eris(Config.bot_token);
         this.attachEvents();
         this.client.connect();
-
-        var onomArray = ["CHIRRUP", "CHIRP", "TWEET", "SING", "WARBLE", "HONK", "QUACK", "SQUAWK", "PARROT", "MEOW", "PURR", "CHATTER"];
-        var onomIndex = parseInt(Math.random() * onomArray.length);
-		console.log("Set status: " + onomArray[onomIndex]);
-	    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
-		var onomSet = 5 * 60 * 1000;
-		setInterval(()=>{
-			var onomIndex = parseInt(Math.random() * onomArray.length);
-			console.log("Set status: " + onomArray[onomIndex]);
-		    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
-		},onomSet);
     }
 
     attachEvents() {
-        this.client.on("ready", () => console.log("BIRB is Ready."));
+        this.client.on("ready", () => {
+        	console.log("BIRB is Ready.");
+        	var onomArray = ["CHIRRUP", "CHIRP", "TWEET", "SING", "WARBLE", "HONK", "QUACK", "SQUAWK", "PARROT", "MEOW", "PURR", "CHATTER"];
+	        var onomIndex = parseInt(Math.random() * onomArray.length);
+			console.log("Set status: " + onomArray[onomIndex]);
+		    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
+			var onomSet = 5 * 60 * 1000;
+			setInterval( () => {
+				var onomIndex = parseInt(Math.random() * onomArray.length);
+				console.log("Set status: " + onomArray[onomIndex]);
+			    this.client.editStatus("online", { name: "noise: " + onomArray[onomIndex]});
+			},onomSet);
+        });
         this.client.on("disconnect", () => console.log("BORIRB is strugglin'. Reconnecting..."));
         this.client.on("messageCreate", this.handleMessage.bind(this));
     }
