@@ -65,16 +65,16 @@ bot.on("message", (msg) => {
 		msg.channel.send(`${statusArray[Math.floor(Math.random() * statusArray.length)]}!! ${msg.content}!!`);
 	}
 
-	if ( !msg.content.startsWith(prefix) || !msg.member || !msg.member.voiceChannel ){
+	if ( !msg.content.startsWith(prefix) || !msg.member){
 		return;
 	}
 
 	let command = msg.content.split(" ")[0].substring(1);
 
 	if(command.startsWith("ping")){
-		msg.channel.send(`PONG! \`${Date.now() - msg.createdAt} ms\``);
+		msg.channel.send(`PONG! \`${new Date().getTime() - msg.createdAt} ms\``);
 		console.log(`PING [ ${msg.channel.guild.name} / ${msg.channel.name} ] ${msg.author.tag}: ${msg.content}`);
-	}else if(!busy){
+	}else if( !busy && msg.member.voiceChannel ){
 		var soundTarget = sounds[command];
 
 		if(soundTarget){
