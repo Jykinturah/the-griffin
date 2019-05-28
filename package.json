@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/Jykinturah/the-griffin#readme",
   "dependencies": {
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.5.5",
     "bufferutil": "^3.0.3",
-    "discord.js": "^11.3.2",
-    "ffmpeg-binaries": "^3.2.2-3",
+    "discord.js": "^11.5.0",
+    "ffmpeg-binaries": "^3.2.2",
     "opusscript": "0.0.6"
   }
 }
