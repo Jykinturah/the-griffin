@@ -2,7 +2,7 @@
   "name": "the-griffin",
   "version": "0.1.0",
   "description": "Sloppy",
-  "main": "index.js",
+  "main": "birb.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,9 +18,7 @@
   "homepage": "https://github.com/Jykinturah/the-griffin#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
-    "bufferutil": "^3.0.3",
     "discord.js": "^11.5.0",
-    "ffmpeg-binaries": "^3.2.2",
     "opusscript": "0.0.6"
   }
 }
